@@ -22,16 +22,16 @@ if (isset($_GET["del"])){
     if($err_msg){
         echo "<h3>$err_msg</h3>";
     }
-
   ?>
   <form action="<?= $_SERVER['PHP_SELF']; ?>" method="post">
     Заголовок новости:<br />
     <input type="text" name="title" /><br />
     Выберите категорию:<br />
     <select name="category">
-      <option value="1">Политика</option>
-      <option value="2">Культура</option>
-      <option value="3">Спорт</option>
+        <?php
+        foreach ($news as $value => $name)
+            echo "<option value='$value'>$name</option>"
+        ?>
     </select>
     <br />
     Текст новости:<br />
